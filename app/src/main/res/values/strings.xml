@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MobCompProject</string>
+    <string name="SpinnerPrompt">Choose Wind Direction</string>
+    <string-array name="SpinnerValues">
+        <item>North</item>
+        <item>North-East</item>
+        <item>East</item>
+        <item>Sout-East</item>
+        <item>South</item>
+        <item>South-West</item>
+        <item>West</item>
+        <item>North-West</item>
+    </string-array>
+
+
+</resources>
