@@ -16,18 +16,27 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.Set;
+import java.util.UUID;
 
 public class SensorActivity extends AppCompatActivity {
 
     int REQUEST_ENABLE_BT = 101;
     BluetoothAdapter mBluetoothAdapter;
+    String TAG = "SensorActivity";
+    //UUID Suuid = UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a69");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
 
+        if (!mBluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }
+
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
         if (mBluetoothAdapter == null) {
             Toast.makeText(this, "Bluetooth is not Supported by this device", Toast.LENGTH_LONG).show();
             // Device doesn't support Bluetooth
@@ -36,10 +45,7 @@ public class SensorActivity extends AppCompatActivity {
             Toast.makeText(this, "Bluetooth is Supported by this Device", Toast.LENGTH_SHORT).show();
         }
 
-        if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-        }
+
 
         // Register for broadcasts when a device is discovered.
         IntentFilter IntentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
@@ -84,10 +90,11 @@ public class SensorActivity extends AppCompatActivity {
             // Use a temporary object that is later assigned to mmServerSocket
             // because mmServerSocket is final.
             BluetoothServerSocket tmp = null;
+            UUID Suuid = UUID.randomUUID();
+
             try {
                 // MY_UUID is the app's UUID string, also used by the client code.
-                tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord("Sensor Information", MY_UUID);
-                //UUID is a unique indentifier generated when connecting to the app. Google how to find UUID to set up this connection
+                tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord("Sensor Information", Suuid);
             } catch (IOException e) {
                 Log.e(TAG, "Socket's listen() method failed", e);
             }
@@ -105,13 +112,13 @@ public class SensorActivity extends AppCompatActivity {
                     break;
                 }
 
-                if (socket != null) {
+                /*if (socket != null) {
                     // A connection was accepted. Perform work associated with
                     // the connection in a separate thread.
                     // ^^ manageMyConnectedSocket(socket);
                     mmServerSocket.close();
                     break;
-                }
+                }*/
             }
         }
 
