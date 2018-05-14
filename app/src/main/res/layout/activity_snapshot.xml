@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.mycompany.mobcompproject.SnapshotActivity">
 
+    <ImageView
+        android:id="@+id/Snapshot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/index" />
 </android.support.constraint.ConstraintLayout>
