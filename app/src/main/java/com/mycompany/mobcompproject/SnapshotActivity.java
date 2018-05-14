@@ -16,7 +16,7 @@
         public class SnapshotActivity extends MainActivity {
             /** Called when the activity is first created. */
             private BluetoothAdapter mBluetoothAdapter = null;
-            private static final UUID MY_UUID =
+            private static final UUID Snap_UUID =
                     UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
             private byte[] buffer = new byte[8192];
             private ImageView image;
@@ -55,7 +55,7 @@
                 public AcceptData() {
                     BluetoothServerSocket tmp = null;
                     try {
-                        tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord("Bluetooth", MY_UUID);
+                        tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord("Bluetooth", Snap_UUID);
                     } catch (IOException e) {
                         //
                     }
