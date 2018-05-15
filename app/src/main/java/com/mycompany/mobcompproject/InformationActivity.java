@@ -47,10 +47,10 @@ public class InformationActivity extends AppCompatActivity {
         // come back via onResume() event.
     }
 
-    /*  Enable discovery via Bluetooth
-    Intent discoverableIntent =
-        new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-startActivity(discoverableIntent);
-     */
+    //TODO: Improve UI
+    //TODO: Connect all switches and such to Intent pass
+    //TODO: Change Intent pass to WP2P connection
+    //TODO: Input Menu Bar
+    //TODO: Send Info to database
+
 }

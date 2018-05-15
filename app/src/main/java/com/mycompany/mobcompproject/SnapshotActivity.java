@@ -16,8 +16,7 @@
         public class SnapshotActivity extends MainActivity {
             /** Called when the activity is first created. */
             private BluetoothAdapter mBluetoothAdapter = null;
-            private static final UUID MY_UUID =
-                    UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
+            private static final UUID MY_UUID = UUID.fromString("fa87c0d0-afac-11de-8a39-0800200c9a66");
             private byte[] buffer = new byte[8192];
             private ImageView image;
 
@@ -29,14 +28,14 @@
 
                 mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
                 if (mBluetoothAdapter == null) {
-                    Toast.makeText(this, "Bluetooth is not available on this device.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Bluetooth is not available on this device. Please reinstall on Bluetooth compatible device", Toast.LENGTH_LONG).show();
                     finish();
                     return;
                 }
 
                 if (!mBluetoothAdapter.isEnabled()) {
                     Toast.makeText(this,
-                            "Please enable your Bluetooth and re-run this program.",
+                            "Please enable your Bluetooth and restart this program.",
                             Toast.LENGTH_LONG).show();
                     finish();
                     return;
@@ -103,4 +102,6 @@
                     }
                 }
             }
+            //TODO: Improve UI
+            //TODO: Input Menu Bar
         }

@@ -27,4 +27,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, SnapshotActivity.class));
         // come back via onResume() event.
     }
+
+    //TODO: Create Drop down menu for menu button
+    //TODO: Improve UI
+    //TODO: (If time permits) Inventory System
 }

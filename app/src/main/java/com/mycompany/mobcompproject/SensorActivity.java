@@ -23,7 +23,7 @@ public class SensorActivity extends AppCompatActivity {
     int REQUEST_ENABLE_BT = 101;
     BluetoothAdapter mBluetoothAdapter;
     String TAG = "SensorActivity";
-    //UUID Suuid = UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a69");
+    UUID Suuid = UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a69");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,6 @@ public class SensorActivity extends AppCompatActivity {
             // Use a temporary object that is later assigned to mmServerSocket
             // because mmServerSocket is final.
             BluetoothServerSocket tmp = null;
-            UUID Suuid = UUID.randomUUID();
 
             try {
                 // MY_UUID is the app's UUID string, also used by the client code.
@@ -131,6 +130,10 @@ public class SensorActivity extends AppCompatActivity {
             }
         }
     }
+
+    //TODO: Build UI
+    //TODO: Pass information through intent
+    //TODO: Build bluetooth sender for simulated data
 
 
 }
